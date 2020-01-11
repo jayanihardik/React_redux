@@ -1,0 +1,40 @@
+.errorclass {
+    color : red
+}
+
+.input-width {
+    width: 25%;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255,255,255,.5);
+}
+.navbar-expand .navbar-nav .nav-link {
+    padding-right: .5rem;
+    padding-left: .5rem;
+}
+
+.navbar-nav .nav-link {
+    padding-right: 0;
+    padding-left: 0;
+}
+.nav-link {
+    display: block;
+    padding: .5rem 1rem;
+}
+
+.container-fluid {
+    margin: 40px;
+    background-color: azure;
+    margin-right: 30px;
+    width: 95%;
+    padding: 30px;
+}
+
+.headings {
+    margin-bottom: 40px;
+}
+
+.headings h1 {
+    font-family :cursive;
+}
