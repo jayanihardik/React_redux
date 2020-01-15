@@ -1,5 +1,6 @@
-import React, { useReducer, useEffect } from "react";
-import axios from 'axios'
+import React, { useEffect, useReducer } from "react";
+
+import { HttpGetReq } from '../services/httpservice';
 export const DataContext = React.createContext()
 
 const initialState = {
@@ -29,11 +30,9 @@ const DataFacingUseReduce = () => {
 
     const [state, dispatch] = useReducer(reducer, initialState)
     useEffect(() => {
-        axios.get('https://jsonplaceholder.typicode.com/posts').then(
-            (res) => {
-                dispatch({ type: "FETCH_SUCCESS", payload: res.data })
-            }
-        ).catch(err => dispatch({ type: "FETCH_FAILED" }))
+        HttpGetReq('posts').then((res) => {
+            dispatch({ type: "FETCH_SUCCESS", payload: res.data })
+        }).catch(err => dispatch({ type: "FETCH_FAILED" }))
     }, [])
     return (
         <>

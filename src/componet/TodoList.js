@@ -1,10 +1,9 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Alert, Button, FormControl, InputGroup, Table } from "react-bootstrap";
 import useForm from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { Delete, Insert, Insert_Call_Api, Update } from '../Redux/action/todolistAction';
-
+import { HttpGetReq } from '../services/httpservice';
 
 const TodoList = () => {
     const ApiData = useSelector(state => state.TodoList);
@@ -30,11 +29,7 @@ const TodoList = () => {
 
     const getApiData = () => {
         const ResData = []
-        axios.get('https://jsonplaceholder.typicode.com/posts').then(
-            (res) => {
-                ResData.push(...res.data)
-            }
-        ).catch(err => console.log(err))
+        HttpGetReq('posts').then(res => ResData.push(...res.data))
         setTimeout(() => {
             dispatch(Insert_Call_Api(ResData))
         }, 800);
@@ -91,7 +86,7 @@ const TodoList = () => {
 
     return (
         <div>
-             <div className="headings">
+            <div className="headings">
                 <h1>Todo List Using Redux</h1>
                 <hr />
             </div>

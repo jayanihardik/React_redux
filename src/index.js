@@ -6,7 +6,6 @@ import App from './App';
 import configureStore from './Redux/configureStore';
 
 const initialState = {};
-
 const store = configureStore(initialState);
 ReactDOM.render(
     <Provider store={store}>
