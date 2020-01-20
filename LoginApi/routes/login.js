@@ -7,5 +7,8 @@ router.post("/signin", logincontroller.signin);
 
 router.post("/login", logincontroller.login);
 
+router.post("/staticPage", auth);
+
+
 
 module.exports = router;

@@ -58,8 +58,8 @@ exports.signin = function (req, res) {
 exports.login = (req, res, next) => {
   const { errors, isValid } = validationlogin(req.body);
   if (!isValid) {
-      return res.status(201).json({
-        message: errors.email,
+    return res.status(201).json({
+      message: errors.email,
       ResponseStatus: 1,
     });
   }
@@ -104,5 +104,7 @@ exports.login = (req, res, next) => {
       });
     });
 };
+
+
 
 
