@@ -9,20 +9,28 @@ import Staticform from './componet/staticform'
 import Reduxform from './componet/reduxform'
 import Usememocounter from './componet/usememocounter'
 import TodoList from './componet/TodoList'
-
+import LoginPage from './authComponet/loginPage'
+import SigninPage from './authComponet/signinPage'
+import PrivteRouter from './authComponet/priveteRouter'
+import Navigationbar from './core/navbar'
 
 const MainRouter = () => (
     <div>
+        <Navigationbar />
         <Switch>
-            <Route exact path="/" component={Staticform}></Route>
-            <Route exact path="/staticform" component={Staticform}></Route>
-            <Route exact path="/reduxform" component={Reduxform}></Route>
-            <Route exact path="/fomicform" component={FomicForm}></Route>
-            <Route exact path="/Datafacing" component={Datafacing}></Route>
-            <Route exact path="/DataFacingUseReduce" component={DataFacingUseReduce}></Route>
-            <Route exact path="/ParentsTochailed" component={ParentsTochailed}></Route>
-            <Route exact path="/Usememocounter" component={Usememocounter}></Route>
-            <Route exact path="/todolist" component={TodoList}></Route>
+            <Route exact path="/" component={LoginPage}></Route>
+            <Route exact path="/login" component={LoginPage}></Route>
+            <Route exact path="/signin" component={SigninPage}></Route>
+            <div className="container-fluid">
+                <PrivteRouter path="/staticform" component={Staticform}></PrivteRouter>
+                <PrivteRouter path="/reduxform" component={Reduxform}></PrivteRouter>
+                <PrivteRouter path="/fomicform" component={FomicForm}></PrivteRouter>
+                <PrivteRouter path="/Datafacing" component={Datafacing}></PrivteRouter>
+                <PrivteRouter path="/DataFacingUseReduce" component={DataFacingUseReduce}></PrivteRouter>
+                <PrivteRouter path="/ParentsTochailed" component={ParentsTochailed}></PrivteRouter>
+                <PrivteRouter path="/Usememocounter" component={Usememocounter}></PrivteRouter>
+                <PrivteRouter path="/todolist" component={TodoList}></PrivteRouter>
+            </div>
         </Switch>
     </div>
 )

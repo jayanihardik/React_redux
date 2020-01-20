@@ -38,3 +38,13 @@
 .headings h1 {
     font-family :cursive;
 }
+
+.nav-link-signout {
+    display: block;
+    padding: .5rem 1rem;
+    color: red;
+    margin-left: 70%;
+    background: white;
+    border-radius: 27px;
+
+}
