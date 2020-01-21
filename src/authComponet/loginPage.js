@@ -25,7 +25,7 @@ const LoginPage = () => {
     }
 
     const submit = () => {
-        HttpPostReq('http://localhost:5000/api/login', logindetails).then(res => {
+        HttpPostReq('http://localhost:3000/api/login', logindetails).then(res => {
             if (res.data.ResponseStatus === 0) {
                 dispatch(InsertToken(res.data.token))
                 history.push('/staticForm')

@@ -8,14 +8,19 @@ const SignupSchema = Yup.object().shape({
     email: Yup.string()
         .min(2, 'Too Short!')
         .max(50, 'Too Long!')
-        .required('Required'),
+        .required('Required')
+        .email('Invalid email'),
     password: Yup.string()
         .min(2, 'Too Short!')
         .max(50, 'Too Long!')
         .required('Required'),
+    confrimpassword: Yup.string()
+        .required('Required')
+        .oneOf([Yup.ref('password'), null], 'Passwords do not match'),
     name: Yup.string()
-        .email('Invalid email')
-        .required('Required'),
+        .min(2, 'Too Short!')
+        .max(50, 'Too Long!')
+        .required('Required')
 });
 
 const FomicForm = () => {
@@ -26,7 +31,7 @@ const FomicForm = () => {
                 <hr />
             </div>
             <Formik
-                initialValues={{ email: '', password: '', name: '' }}
+                initialValues={{ email: '', password: '', name: '', confrimpassword: '' }}
                 onSubmit={(values, { setSubmitting }) => {
                     setTimeout(() => {
                         alert(JSON.stringify(values, null, 2));
@@ -40,10 +45,19 @@ const FomicForm = () => {
                         <div className="row">
                             <div className="col-md-8">
                                 <label className="col-md-2 mt-2">
+                                    Name:
+                            </label>
+                                <div className="col-md-10">
+                                    <Field className="input-width" type="text" name="name" />
+                                    <ErrorMessage className="errorclass" name="name" component="div" />
+                                </div>
+                            </div>
+                            <div className="col-md-8">
+                                <label className="col-md-2 mt-2">
                                     Email:
                             </label>
                                 <div className="col-md-10">
-                                    <Field className="input-width" type="email" name="email" />
+                                    <Field className="input-width" type="text" name="email" />
                                     <ErrorMessage className="errorclass" name="email" component="div" />
                                 </div>
                             </div>
@@ -58,13 +72,14 @@ const FomicForm = () => {
                             </div>
                             <div className="col-md-8">
                                 <label className="col-md-2 mt-2">
-                                    Name:
+                                    Confrim password:
                             </label>
                                 <div className="col-md-10">
-                                    <Field className="input-width" type="text" name="name" />
-                                    <ErrorMessage className="errorclass" name="name" component="div" />
+                                    <Field className="input-width" type="password" name="confrimpassword" />
+                                    <ErrorMessage className="errorclass" name="confrimpassword" component="div" />
                                 </div>
                             </div>
+
                             <div className="col-md-8">
                                 <div className="col-md-10 pt-3">
                                     <Button type="submit" variant="outline-secondary" disabled={isSubmitting}>

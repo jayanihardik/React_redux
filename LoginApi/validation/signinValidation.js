@@ -13,34 +13,34 @@ module.exports = function validationsignin(data) {
     : "";
 
   if (!validator.isLength(data.email, { min: 6, max: 40 })) {
-    errors.email = "Email Not valid ";
+    errors.message = "email not valid ";
   }
   if (!validator.isLength(data.password, { min: 5, max: 100 })) {
-    errors.password = "password must be 5 to 10 charecters ";
+    errors.message = "password must be 5 to 10 charecters ";
   }
   if (validator.isEmpty(data.name)) {
-    errors.name = "name Reqiuerd";
+    errors.message = "name reqiuerd";
   }
   if (validator.isEmpty(data.phoneNo)) {
-    errors.phoneNo = "phoneNo Reqiuerd";
+    errors.message = "phoneno reqiuerd";
   }
   if (validator.isEmpty(data.pincode)) {
-    errors.pincode = "pincode Reqiuerd";
+    errors.message = "pincode reqiuerd";
   }
   if (validator.isEmpty(data.email)) {
-    errors.email = "email Filed Reqiuerd";
+    errors.message = "email filed reqiuerd";
   }
   if (!validator.isEmail(data.email)) {
-    errors.email = "Email is invalid";
+    errors.message = "email is invalid";
   }
   if (validator.isEmpty(data.password)) {
-    errors.password = "password Reqiuerd";
+    errors.message = "password reqiuerd";
   }
   if (validator.isEmpty(data.confimPassword)) {
-    errors.confimPassword = "confimPassword Filed Reqiuerd";
+    errors.message = "confimpassword filed reqiuerd";
   }
   if (!validator.equals(data.password, data.confimPassword)) {
-    errors.confimPassword = "PassWord Not Match ";
+    errors.message = "password not match ";
   }
   return {
     errors,

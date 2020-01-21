@@ -14,13 +14,12 @@ const isActive = (history, path) => {
 
 
 const signout = () => {
+    window.location.href = "/login";
     localStorage.clear();
-
 }
 
 
 const Navigationbar = ({ history }) => (
-
     <div>
         {isAuthenticated() && (
             <>

@@ -7,7 +7,10 @@ const validationlogin = require("../validation/loginvalidation");
 exports.signin = function (req, res) {
   const { errors, isValid } = validationsignin(req.body);
   if (!isValid) {
-    return res.status(201).json(errors);
+    return res.status(201).json({
+      ResponseStatus: 1,
+      errors
+    });
   }
   loginModels
     .find({ email: req.body.email })
@@ -15,7 +18,8 @@ exports.signin = function (req, res) {
     .then(results => {
       if (results.length >= 1) {
         return res.status(200).json({
-          message: "Email is exists"
+          errors : {message: "Email is exists"},
+          ResponseStatus: 1,
         });
       } else {
         bcrypt.hash(
