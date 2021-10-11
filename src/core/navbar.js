@@ -6,12 +6,6 @@ import '../style/style.css'
 
 import { isAuthenticated } from '../authComponet/index'
 
-const isActive = (history, path) => {
-    if (history.location.pathname === path)
-        return { color: "#aeb5bb" }; else
-        return { color: "#ffffff" }
-};
-
 
 const signout = () => {
     window.location.href = "/login";
@@ -26,14 +20,14 @@ const Navigationbar = ({ history }) => (
                 <Navbar bg="dark" variant="dark">
                     <Navbar.Brand>Navbar</Navbar.Brand>
                     <Nav className="mr-auto">
-                        <Link className='nav-link' to='/staticform'>StaticForm</Link>
-                        <Link className='nav-link' to='/reduxform'>ReduxForm</Link>
-                        <Link className='nav-link' to='/fomicform'>FormicFrom</Link>
-                        <Link className='nav-link' to='/Datafacing'>DataFacing</Link>
-                        <Link className='nav-link' to='/DataFacingUseReduce'>DataFacingUseReduce</Link>
-                        <Link className='nav-link' to='/Usememocounter'>UseMemoCounter</Link>
-                        <Link className='nav-link' to='/ParentsTochailed'>ParentsTochailed</Link>
-                        <Link className='nav-link' to='/todolist'>TodoList</Link>
+                        <Link className='nav-link' to='/staticForm'>staticForm</Link>
+                        <Link className='nav-link' to='/reduxForm'>reduxForm</Link>
+                        <Link className='nav-link' to='/formicForm'>formicFrom</Link>
+                        <Link className='nav-link' to='/DataFetching'>dataFacing</Link>
+                        <Link className='nav-link' to='/DataFetchingUsingRedux'>DataFetchingUsingRedux</Link>
+                        <Link className='nav-link' to='/useMemoCounter'>useMemoCounter</Link>
+                        <Link className='nav-link' to='/parentsToChild'>parentsToChild</Link>
+                        <Link className='nav-link' to='/todolist'>todoList</Link>
                         <Link className='nav-link-signout' to='/login' onClick={() => signout()}>signout</Link>
                     </Nav>
                 </Navbar>
